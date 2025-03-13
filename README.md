@@ -6,7 +6,7 @@ The **Medical Chatbot** is an AI-powered conversational agent designed to provid
 ## Project Methodology 
 
 ### 1. Technology Stack
-- **Frontend**: HTML, CSS, Bootstrap
+- **Frontend**: HTML, CSS, JavaScript
 - **Backend**: Flask (Python), LangChain, Ollama (LLM), Pinecone (Vector Database)
 - **Embeddings**: Hugging Face embeddings for document search
 - **LLM**: Mistral model (via Ollama) for AI responses
@@ -22,7 +22,7 @@ The **Medical Chatbot** is an AI-powered conversational agent designed to provid
 4. **Response Delivery**: The chatbot displays the AI-generated answer in the UI.
 5. **Chat History Maintenance**: The chatbot maintains a session-based history for contextual responses.
 
-## Project Implementatiomm
+## Project Implementation
 
 ### 1. Prerequisites
 Ensure the following dependencies are installed:
