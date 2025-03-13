@@ -3,7 +3,7 @@
 ## Introduction
 The **Medical Chatbot** is an AI-powered conversational agent designed to provide medical-related information and assist users with health inquiries. This chatbot leverages Natural Language Processing (NLP) and Retrieval-Augmented Generation (RAG) to deliver accurate and context-aware responses. Built using **Flask, Ollama, LangChain, and Pinecone**, it ensures fast and efficient retrieval of medical knowledge.
 
-## Project Methodology & Implementation
+## Project Methodology 
 
 ### 1. Technology Stack
 - **Frontend**: HTML, CSS, Bootstrap
@@ -22,7 +22,7 @@ The **Medical Chatbot** is an AI-powered conversational agent designed to provid
 4. **Response Delivery**: The chatbot displays the AI-generated answer in the UI.
 5. **Chat History Maintenance**: The chatbot maintains a session-based history for contextual responses.
 
-## Project Execution
+## Project Implementatiomm
 
 ### 1. Prerequisites
 Ensure the following dependencies are installed:
@@ -58,6 +58,11 @@ Ensure the following dependencies are installed:
    ```
    http://localhost:5000
    ```
+
+## Project Excecution
+<img width="1440" alt="Image" src="https://github.com/user-attachments/assets/140e3abc-25ea-4403-b7a5-35d84f11e389" />
+<img width="1440" alt="Image" src="https://github.com/user-attachments/assets/63ab691e-25b8-4c35-9994-79596d4ea909" />
+<img width="1440" alt="Image" src="https://github.com/user-attachments/assets/569eb2d5-bd0c-4b10-b11b-e12c3cf25032" />
 
 ### 3. Usage
 - Type a medical query in the chatbot interface.
