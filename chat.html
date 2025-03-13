@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Chatbot</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #1E1E2E;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .chat-container {
+            width: 40%;
+            background: #2A2A3A;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        .chat-header {
+            background: #3B3B4F;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .chat-header img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+        .chat-body {
+            padding: 20px;
+            height: 400px;
+            overflow-y: auto;
+        }
+        .chat-footer {
+            background: #3B3B4F;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .chat-footer input {
+            flex: 1;
+            padding: 10px;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+        }
+        .user-message {
+            text-align: right;
+            margin-bottom: 10px;
+        }
+        .user-message .message {
+            background: #3AA6B9;
+            padding: 10px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+        .bot-message {
+            text-align: left;
+            margin-bottom: 10px;
+        }
+        .bot-message .message {
+            background: #4A90E2;
+            padding: 10px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <img src="https://cdn-icons-png.flaticon.com/512/387/387569.png" alt="Bot">
+            <h5>Medical Chatbot</h5>
+        </div>
+        <div class="chat-body" id="chat-body">
+            <!-- Chat messages will appear here -->
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="message" placeholder="Type your message...">
+            <button onclick="sendMessage()" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            let message = document.getElementById("message").value;
+            if (!message.trim()) return;
+
+            let chatBody = document.getElementById("chat-body");
+            let userMessage = `<div class='user-message'><div class='message'>${message}</div></div>`;
+            chatBody.innerHTML += userMessage;
+            document.getElementById("message").value = "";
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+            fetch('/get', {
+                method: 'POST',
+                body: new URLSearchParams({ msg: message }),
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+            })
+            .then(response => response.text())
+            .then(data => {
+                let botMessage = `<div class='bot-message'><div class='message'>${data}</div></div>`;
+                chatBody.innerHTML += botMessage;
+                chatBody.scrollTop = chatBody.scrollHeight;
+            });
+        }
+    </script>
+</body>
+</html>
